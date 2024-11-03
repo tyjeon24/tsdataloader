@@ -1,0 +1,45 @@
+[project]
+name = "tsdataloader"
+version = "0.1.0"
+description = "From database(PostgreSQL, ...) to PyTorch Dataloader."
+authors = [
+    {name = "Taeyong Jeon", email = "taeyongjeon24@gmail.com"},
+]
+dependencies = ["psycopg2-binary>=2.9.10", "torch>=2.5.1"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[project.urls]
+Repository = "https://github.com/tyjeon24/tsdataloader"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest",
+    "ipykernel",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 120
+
+# https://docs.astral.sh/ruff/rules/
+[tool.ruff.lint]
+extend-select = [
+  "RUF",  # ruff
+  "I",    # isort
+  "W",    # pycodestyle
+  "UP",   # pyupgrade
+  "D",   # pydocstyle
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
